@@ -17,8 +17,12 @@ function App() {
                 <>
                   <h1>Bem-vindo ao GetInfo</h1>
                   <p>
-                    Esta é uma página de exemplo com uma barra lateral para o
-                    projeto GetInfo.
+                    O GetInfo é uma ferramenta de gerenciamento de contratos e
+                    aditivos, desenvolvida para facilitar o acompanhamento e a
+                    organização de informações relevantes. Com uma interface
+                    intuitiva e recursos avançados, o GetInfo permite que você
+                    gerencie seus contratos e aditivos de forma eficiente e
+                    prática.
                   </p>
                 </>
               }
