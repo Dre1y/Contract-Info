@@ -55,6 +55,12 @@ public class ContractService {
                 .toList();
     }
 
+    public List<UUID> getAllIds() {
+        return contractRepository.findAll().stream()
+                .map(Contract::getId)
+                .toList();
+    }
+
     public ContractResponseDTO update(UUID id, ContractRequestDTO dto) {
 
         Contract contract = contractRepository.findById(id)
