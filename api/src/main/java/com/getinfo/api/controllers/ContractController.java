@@ -34,6 +34,11 @@ public class ContractController {
         return ResponseEntity.ok(contractService.getAll());
     }
 
+    @GetMapping("/ids")
+    public ResponseEntity<List<UUID>> getAllIds() {
+        return ResponseEntity.ok(contractService.getAllIds());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<ContractResponseDTO> update(@PathVariable UUID id, @RequestBody @Validated ContractRequestDTO dto) {
         return ResponseEntity.ok(contractService.update(id, dto));
