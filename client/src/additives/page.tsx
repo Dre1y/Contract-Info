@@ -65,13 +65,6 @@ export default function AdditivesPage() {
 
   return (
     <div className="aditivos-page">
-      <div className="aditivos-header">
-        <h2>Gerenciamento de Aditivos</h2>
-        <p className="aditivos-desc">
-          Cadastre, aprove e acompanhe aditivos contratuais de forma segura e
-          rastreável.
-        </p>
-      </div>
       <form className="aditivos-form" onSubmit={handleSubmit}>
         <div>
           <label>Motivo da alteração*</label>

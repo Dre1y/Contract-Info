@@ -78,7 +78,7 @@ export default function ContractManagementPage() {
           className={activeTab === "novo" ? "active" : ""}
           onClick={() => setActiveTab("novo")}
         >
-          Adicionar Contrato
+          Cadastrar Contrato
         </button>
       </div>
 

@@ -31,13 +31,13 @@
 }
 
 .gerenciamento-contratos-tabs button:hover {
-  background: #072648;
+  background: #274060;
   color: white;
   cursor: pointer;
 }
 
 .gerenciamento-contratos-tabs button.active {
-  background: #072648;
+  background: #274060;
   color: white;
 }
 

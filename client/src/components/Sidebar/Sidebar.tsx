@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 
 const itensMenu = [
-  { nome: "Início", icone: <FaTachometerAlt />, path: "/" },
   { nome: "Dashboard", icone: <FaTachometerAlt />, path: "/dashboard" },
   {
     nome: "Contratos",
