@@ -1,16 +1,6 @@
 import { useState } from "react";
 import "./ContractManagement.css";
-import {
-  FaFileAlt,
-  FaSearch,
-  FaFilter,
-  FaFilePdf,
-  FaFileCsv,
-  FaUpload,
-  FaTrash,
-  FaEdit,
-  FaArchive,
-} from "react-icons/fa";
+import { FaFileAlt, FaSearch, FaFilter, FaUpload } from "react-icons/fa";
 
 export default function ContractManagementPage() {
   const [activeTab, setActiveTab] = useState("ativos");
@@ -62,18 +52,6 @@ export default function ContractManagementPage() {
     console.log("Dados do formulário:", formData);
   };
 
-  const exportarPDF = () => {
-    // Aqui será implementada a lógica de exportação para PDF
-    console.log("Exportando para PDF com filtros:", filtros);
-    alert("Exportação para PDF iniciada!");
-  };
-
-  const exportarCSV = () => {
-    // Aqui será implementada a lógica de exportação para CSV
-    console.log("Exportando para CSV com filtros:", filtros);
-    alert("Exportação para CSV iniciada!");
-  };
-
   const aplicarFiltros = () => {
     // Aqui será implementada a lógica de filtragem
     console.log("Aplicando filtros:", filtros);
@@ -95,31 +73,12 @@ export default function ContractManagementPage() {
 
   return (
     <div className="gerenciamento-contratos-page">
-      <div className="gerenciamento-contratos-header">
-        <h2>Gerenciamento de Contratos</h2>
-        <p className="gerenciamento-contratos-desc">
-          Gerencie seus contratos de forma eficiente e organizada.
-        </p>
-      </div>
-
       <div className="gerenciamento-contratos-tabs">
-        <button
-          className={activeTab === "ativos" ? "active" : ""}
-          onClick={() => setActiveTab("ativos")}
-        >
-          Contratos Ativos
-        </button>
-        <button
-          className={activeTab === "vencidos" ? "active" : ""}
-          onClick={() => setActiveTab("vencidos")}
-        >
-          Contratos Vencidos
-        </button>
         <button
           className={activeTab === "novo" ? "active" : ""}
           onClick={() => setActiveTab("novo")}
         >
-          Novo Contrato
+          Adicionar Contrato
         </button>
       </div>
 
@@ -262,12 +221,6 @@ export default function ContractManagementPage() {
               >
                 <FaFilter /> Filtrar
               </button>
-              <button className="btn-export" onClick={exportarPDF}>
-                <FaFilePdf /> PDF
-              </button>
-              <button className="btn-export" onClick={exportarCSV}>
-                <FaFileCsv /> CSV
-              </button>
             </div>
           </div>
 
@@ -383,46 +336,6 @@ export default function ContractManagementPage() {
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>CT-2024-001</td>
-                  <td>Público</td>
-                  <td>Prefeitura Municipal</td>
-                  <td>R$ 150.000,00</td>
-                  <td>01/01/2024</td>
-                  <td>31/12/2024</td>
-                  <td>
-                    <span className="status-active">Ativo</span>
-                  </td>
-                  <td>
-                    <button className="btn-action" title="Editar">
-                      <FaEdit />
-                    </button>
-                    <button className="btn-action" title="Arquivar">
-                      <FaArchive />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>CT-2024-002</td>
-                  <td>Privado</td>
-                  <td>Empresa XYZ</td>
-                  <td>R$ 75.000,00</td>
-                  <td>15/01/2024</td>
-                  <td>15/07/2024</td>
-                  <td>
-                    <span className="status-active">Ativo</span>
-                  </td>
-                  <td>
-                    <button className="btn-action" title="Editar">
-                      <FaEdit />
-                    </button>
-                    <button className="btn-action" title="Arquivar">
-                      <FaArchive />
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
             </table>
           </div>
         </div>

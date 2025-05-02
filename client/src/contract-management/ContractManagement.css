@@ -5,11 +5,6 @@
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.gerenciamento-contratos-header h2 {
-  color: #3b5b7e;
-  margin-bottom: 4px;
-}
-
 .gerenciamento-contratos-desc {
   color: #7f8c8d;
   margin-bottom: 24px;
@@ -17,6 +12,7 @@
 
 .gerenciamento-contratos-tabs {
   display: flex;
+  justify-content: flex-end;
   gap: 16px;
   margin-bottom: 24px;
   border-bottom: 1px solid #e0e0e0;
@@ -28,19 +24,20 @@
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
-  color: #7f8c8d;
-  cursor: pointer;
+  background: #3b5b7e;
+  color: white;
   border-radius: 4px;
   transition: all 0.2s;
 }
 
 .gerenciamento-contratos-tabs button:hover {
-  background: #e9ecef;
-  color: #3b5b7e;
+  background: #072648;
+  color: white;
+  cursor: pointer;
 }
 
 .gerenciamento-contratos-tabs button.active {
-  background: #3b5b7e;
+  background: #072648;
   color: white;
 }
 
