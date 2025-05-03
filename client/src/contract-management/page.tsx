@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./ContractManagement.css";
 import { FaFileAlt, FaSearch, FaFilter, FaUpload } from "react-icons/fa";
+import ContractTable from "@/components/ContractTable/ContractTable";
+import { useContractData } from "@/hooks/useContractData";
 
 export default function ContractManagementPage() {
+  const { data } = useContractData();
   const [activeTab, setActiveTab] = useState("ativos");
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -323,20 +326,11 @@ export default function ContractManagementPage() {
           )}
 
           <div className="contracts-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Número</th>
-                  <th>Tipo</th>
-                  <th>Contratante</th>
-                  <th>Valor</th>
-                  <th>Início</th>
-                  <th>Término</th>
-                  <th>Status</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-            </table>
+            <div className="container">
+              <div className="card-grid">
+                {data && <ContractTable data={data} />}
+              </div>
+            </div>
           </div>
         </div>
       )}
