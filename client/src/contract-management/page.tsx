@@ -99,6 +99,29 @@ export default function ContractManagementPage() {
               </select>
             </div>
 
+            <div className="form-group">
+              <label>Contratante*</label>
+              <input
+                type="text"
+                name="contratante"
+                value={formData.contratante}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>CNPJ*</label>
+              <input
+                type="text"
+                name="cnpj"
+                value={formData.cnpj}
+                onChange={handleInputChange}
+                placeholder="00.000.000/0000-00"
+                required
+              />
+            </div>
+
             <div className="form-row">
               <div className="form-group">
                 <label>Data de Início*</label>
@@ -130,29 +153,6 @@ export default function ContractManagementPage() {
                 value={formData.valor}
                 onChange={handleInputChange}
                 placeholder="R$ 0,00"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Contratante*</label>
-              <input
-                type="text"
-                name="contratante"
-                value={formData.contratante}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>CNPJ*</label>
-              <input
-                type="text"
-                name="cnpj"
-                value={formData.cnpj}
-                onChange={handleInputChange}
-                placeholder="00.000.000/0000-00"
                 required
               />
             </div>
