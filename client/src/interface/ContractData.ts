@@ -1,5 +1,5 @@
 export interface ContractData {
-  id: string;
+  id?: string;
   contractType: string;
   serviceType: string;
   description: string;

@@ -1,0 +1,78 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-overlay .modal-body {
+  background-color: white;
+  padding: 24px;
+  max-height: 80vh;
+  width: 60%;
+  border-radius: 24px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modal-overlay .modal-body h2 {
+  font-size: 32px;
+}
+
+.modal-overlay .modal-body .input-container {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.modal-overlay .modal-body input {
+  padding: 8px;
+  border: 2px solid #c6c5c5c5;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.modal-overlay .modal-body label {
+  color: #242424;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.modal-overlay .modal-body .btn-secondary {
+  width: 100%;
+  margin-top: 32px;
+}
+
+.modal-overlay .modal-body .btn-secondary:hover {
+  background-color: #274060;
+  transform: scale(1);
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background: #3b5b7e;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #274060;
+  color: white;
+  cursor: pointer;
+}

@@ -12,7 +12,7 @@ const fetchData = async (): AxiosPromise<ContractData[]> => {
 export function useContractData() {
   const query = useQuery({
     queryFn: fetchData,
-    queryKey: ["contractData"],
+    queryKey: ["contract-data"],
   });
 
   return {
