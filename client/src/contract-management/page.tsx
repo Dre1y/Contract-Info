@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "./ContractManagement.css";
-import { FaFileAlt, FaSearch, FaFilter, FaUpload } from "react-icons/fa";
+import { FaSearch, FaFilter } from "react-icons/fa";
+import ContractTable from "@/components/ContractTable/ContractTable";
+import { useContractData } from "@/hooks/useContractData";
+import CreateContractModal from "@/components/CreateContractModal/CreateContractModal";
 
 export default function ContractManagementPage() {
+  const { data } = useContractData();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("ativos");
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -71,141 +76,15 @@ export default function ContractManagementPage() {
     setShowFiltros(false);
   };
 
+  const handleOpenModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <div className="gerenciamento-contratos-page">
       <div className="gerenciamento-contratos-tabs">
-        <button
-          className={activeTab === "novo" ? "active" : ""}
-          onClick={() => setActiveTab("novo")}
-        >
-          Cadastrar Contrato
-        </button>
+        <button onClick={handleOpenModal}>Cadastrar Contrato</button>
       </div>
-
-      {activeTab === "novo" && (
-        <div className="gerenciamento-contratos-form">
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Tipo de Contrato*</label>
-              <select
-                name="tipo"
-                value={formData.tipo}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">Selecione...</option>
-                <option value="publico">Público</option>
-                <option value="privado">Privado</option>
-              </select>
-            </div>
-
-            <div className="form-group">
-              <label>Contratante*</label>
-              <input
-                type="text"
-                name="contratante"
-                value={formData.contratante}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>CNPJ*</label>
-              <input
-                type="text"
-                name="cnpj"
-                value={formData.cnpj}
-                onChange={handleInputChange}
-                placeholder="00.000.000/0000-00"
-                required
-              />
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label>Data de Início*</label>
-                <input
-                  type="date"
-                  name="dataInicio"
-                  value={formData.dataInicio}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label>Data de Término*</label>
-                <input
-                  type="date"
-                  name="dataFim"
-                  value={formData.dataFim}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label>Valor do Contrato*</label>
-              <input
-                type="text"
-                name="valor"
-                value={formData.valor}
-                onChange={handleInputChange}
-                placeholder="R$ 0,00"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Entregáveis*</label>
-              <textarea
-                name="entregaveis"
-                value={formData.entregaveis}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Documentos Anexos</label>
-              <div className="file-upload">
-                <input
-                  type="file"
-                  multiple
-                  accept=".pdf,.jpg,.jpeg"
-                  onChange={handleFileUpload}
-                />
-                <FaUpload className="upload-icon" />
-                <span>Arraste arquivos ou clique para selecionar</span>
-              </div>
-              {formData.documentos.length > 0 && (
-                <div className="uploaded-files">
-                  {formData.documentos.map((file, index) => (
-                    <div key={index} className="file-item">
-                      <FaFileAlt />
-                      <span>{file.name}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="form-actions">
-              <button type="submit" className="btn-primary">
-                Salvar Contrato
-              </button>
-              <button
-                type="button"
-                className="btn-secondary"
-                onClick={() => setActiveTab("ativos")}
-              >
-                Cancelar
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
 
       {(activeTab === "ativos" || activeTab === "vencidos") && (
         <div className="gerenciamento-contratos-list">
@@ -323,21 +202,9 @@ export default function ContractManagementPage() {
           )}
 
           <div className="contracts-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Número</th>
-                  <th>Tipo</th>
-                  <th>Contratante</th>
-                  <th>Valor</th>
-                  <th>Início</th>
-                  <th>Término</th>
-                  <th>Status</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-            </table>
+            {data && <ContractTable data={data} />}
           </div>
+          {isModalOpen && <CreateContractModal closeModal={handleOpenModal} />}
         </div>
       )}
     </div>
