@@ -33,6 +33,7 @@ public class ContractRequestDTO {
     private UUID contractorId;
     private UUID deliverableId;
     private UUID attachmentId;
+    private UUID contractorCPF_CNPJ;
 
     public ContractType getContractType() { return contractType; }
     public void setContractType(ContractType contractType) { this.contractType = contractType; }
@@ -63,5 +64,11 @@ public class ContractRequestDTO {
 
     public UUID getAttachmentId() { return attachmentId; }
     public void setAttachmentId(UUID attachmentId) { this.attachmentId = attachmentId; }
+    
+    public UUID getContractorCPF_CNPJ(){ return contractorCPF_CNPJ; }
+    public void setContractorCPF_CNPJ(UUID contractorCPF_CNPJ){ 
+        this.contractorCPF_CNPJ = contractorCPF_CNPJ;
+    }
+
 }
 

@@ -11,6 +11,7 @@ public class ContractResponseDTO {
     private String validityStart;
     private String validityEnd;
     private String contractorName;
+    private String contractorCPF_CNPJ;
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
@@ -32,5 +33,8 @@ public class ContractResponseDTO {
 
     public String getContractorName() { return contractorName; }
     public void setContractorName(String contractorName) { this.contractorName = contractorName; }
+
+    public String getContractorCPF_CNPJ(){return contractorCPF_CNPJ;}
+    public void setContractorCPF_CNPJ(String contractorCPF_CNPJ){ this.contractorCPF_CNPJ = contractorCPF_CNPJ;}
 }
 

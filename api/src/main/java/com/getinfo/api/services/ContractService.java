@@ -90,6 +90,7 @@ public class ContractService {
         dto.setValidityStart(contract.getValidityStart() != null ? contract.getValidityStart().toString() : null);
         dto.setValidityEnd(contract.getValidityEnd() != null ? contract.getValidityEnd().toString() : null);
         dto.setContractorName(contract.getContractor() != null ? contract.getContractor().getName() : null);
+        dto.setContractorCPF_CNPJ(contract.getContractor() != null ? contract.getContractor().getCPF_CNPJ() : null);
         return dto;
     }
 }

@@ -49,5 +49,25 @@ public class ContractController {
         contractService.delete(id);
         return ResponseEntity.noContent().build();
     }
+    
+    @GetMapping("/{CPF-CNPJ}")
+    public ResponseEntity<ContractResponseDTO> getByCPF_CNPJ(@PathVariable UUID CPF_CNPJ) {
+        return ResponseEntity.ok(contractService.getByCPF_CNPJ(CPF_CNPJ));
+    }
+
+    @PutMapping("/{CPF-CNPJ}")
+    public ResponseEntity<ContractResponseDTO> updateByCPF_CNPJ(@PathVariable UUID CPF_CNPJ, @RequestBody @Validated ContractRequestDTO dto) {
+        return ResponseEntity.ok(contractService.updateByCPF_CNPJ(CPF_CNPJ, dto));
+    }
+
+    @DeleteMapping("/{CPF-CNPJ}")
+    public ResponseEntity<Void> deleteByCPF_CNPJ(@PathVariable UUID CPF_CNPJ) {
+        contractService.deleteByCPF_CNPJ(CPF_CNPJ);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
+
+
 

@@ -16,7 +16,7 @@ public class Contractor {
     @Id @GeneratedValue
     private UUID id;
     private String name;
-    private String cpfCnpj;
+    private String CPF_CNPJ;
     private String phone;
     private String cep;
 
