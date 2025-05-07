@@ -5,5 +5,5 @@ export interface ContractData {
   description: string;
   validityStart: string;
   validityEnd: string;
-  contractorName: string;
+  contractorId: string;
 }
