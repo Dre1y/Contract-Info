@@ -31,7 +31,7 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
   const [description, setDescription] = useState("");
   const [validityStart, setValidityStart] = useState("");
   const [validityEnd, setValidityEnd] = useState("");
-  const [contractorName, setContractorName] = useState("");
+  const [contractorId, setContractorId] = useState("");
   const { mutate, isSuccess, isLoading } = useContractDataMutate();
 
   const submit = () => {
@@ -41,9 +41,8 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
       description,
       validityStart,
       validityEnd,
-      contractorName,
+      contractorId,
     };
-    console.log(data);
     mutate(data);
   };
 
@@ -83,16 +82,18 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
             updateValue={setValidityEnd}
           />
           <Input
-            label="Contratante"
-            value={contractorName}
-            updateValue={setContractorName}
+            label="ID do Contratante"
+            value={contractorId}
+            updateValue={setContractorId}
           />
-          <button type="button" onClick={submit}>
-            {isLoading ? "Cadastrando..." : "Cadastrar"}
-          </button>
-          <button type="button" onClick={closeModal}>
-            Cancelar
-          </button>
+          <div className="buttons-container">
+            <button type="button" onClick={submit}>
+              {isLoading ? "Cadastrando..." : "Cadastrar"}
+            </button>
+            <button type="button" onClick={closeModal}>
+              Cancelar
+            </button>
+          </div>
         </form>
       </div>
     </div>
