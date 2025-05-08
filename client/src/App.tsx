@@ -7,6 +7,7 @@ import RelatoriosPage from "./relatorios/page";
 import RepactuacoesPage from "./repactuacoes/page";
 import { RepactuacoesProvider } from "./repactuacoes/RepactuacoesContext";
 import EntregaveisPage from "./components/Entregaveis/EntregaveisPage";
+import AuthPage from "./auth/page";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Sidebar />
           <div className="main-content">
             <Routes>
+              <Route path="login" element={<AuthPage />} />
               <Route
                 path="/"
                 element={

@@ -1,36 +1,39 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaUser, FaEnvelope, FaLock, FaKey } from "react-icons/fa";
+import logo from "../assets/logo-getinfo.png";
 
-const GradientContainer = styled.div`
+export const GradientContainer = styled.div`
   display: flex;
   min-height: 100vh;
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
-const SidePanel = styled.div`
+export const SidePanel = styled.div`
   flex: 1;
   background: url("/bg-login.png") center center/cover no-repeat;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
   padding: 0 5vw;
+
   @media (max-width: 768px) {
-    padding: 2rem;
+    padding: 3rem 2rem 2rem;
     align-items: center;
     text-align: center;
   }
 `;
 
-const LogoWrapper = styled.div`
+export const LogoWrapper = styled.div`
   position: absolute;
   top: 32px;
   left: 32px;
   z-index: 3;
+
   @media (max-width: 768px) {
     top: 16px;
     left: 50%;
@@ -38,46 +41,44 @@ const LogoWrapper = styled.div`
   }
 `;
 
-const LogoImg = styled.img`
+export const LogoImg = styled.img`
   width: 140px;
-  margin-bottom: 0;
-  margin-left: 0;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 `;
 
-const SideContent = styled.div`
+export const SideContent = styled.div`
   color: #fff;
   max-width: 400px;
-  text-align: left;
-  position: relative;
   z-index: 2;
-`;
 
-const Slogan = styled.h2`
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: #fff;
-  margin: 40px 0 0 32px;
-  text-align: left;
-  z-index: 2;
-  position: relative;
   @media (max-width: 768px) {
-    font-size: 1.5rem;
-    margin: 24px 0 0 0;
     text-align: center;
   }
 `;
 
-const ContentPanel = styled.div`
+export const Slogan = styled.h2`
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 40px 0 0;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    margin: 24px 0 0;
+  }
+`;
+
+export const ContentPanel = styled.div`
   flex: 1;
   background: #f8f9fa;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
 `;
 
-const Card = styled.div`
+export const Card = styled.div`
   background: #fff;
   padding: 2.5rem 2rem;
   border-radius: 10px;
@@ -86,7 +87,7 @@ const Card = styled.div`
   max-width: 370px;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 1.35rem;
   color: #222;
   margin-bottom: 0.2rem;
@@ -95,19 +96,19 @@ const Title = styled.h1`
   letter-spacing: 0.01em;
 `;
 
-const Subtitle = styled.p`
+export const Subtitle = styled.p`
   color: #666;
   font-size: 0.98rem;
   margin-bottom: 1.2rem;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 `;
 
-const InputGroup = styled.div`
+export const InputGroup = styled.div`
   position: relative;
   margin-bottom: 1.1rem;
 `;
 
-const InputIcon = styled.div`
+export const InputIcon = styled.div`
   position: absolute;
   left: 12px;
   top: 50%;
@@ -116,28 +117,29 @@ const InputIcon = styled.div`
   font-size: 1.1rem;
 `;
 
-const ErrorMessage = styled.div`
+export const ErrorMessage = styled.div`
   color: #dc3545;
   font-size: 0.85rem;
   margin-top: 0.25rem;
   margin-left: 0.25rem;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   width: 100%;
   padding: 0.7rem 0.7rem 0.7rem 2.5rem;
-  border: 1px solid ${(props) => (props.error ? "#dc3545" : "#ccc")};
+  border: 1px solid ${({ error }) => (error ? "#dc3545" : "#ccc")};
   border-radius: 5px;
   font-size: 1rem;
   background: #f6fafd;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+
   &:focus {
     outline: none;
-    border-color: ${(props) => (props.error ? "#dc3545" : "#3a8dde")};
+    border-color: ${({ error }) => (error ? "#dc3545" : "#3a8dde")};
   }
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   width: 100%;
   background: linear-gradient(90deg, #00c98d 0%, #3a8dde 100%);
   color: #fff;
@@ -150,18 +152,19 @@ const Button = styled.button`
   cursor: pointer;
   transition: opacity 0.2s;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+
   &:hover {
     opacity: 0.9;
   }
 `;
 
-const ButtonSecondary = styled(Button)`
+export const ButtonSecondary = styled(Button)`
   background: #e9ecef;
   color: #222;
   margin-bottom: 0;
 `;
 
-const LinkButton = styled.button`
+export const LinkButton = styled.button`
   background: none;
   border: none;
   color: #3a8dde;
@@ -610,14 +613,14 @@ function NewPass({ onChangeScreen }) {
   );
 }
 
-function App() {
+export default function AuthPage() {
   const [screen, setScreen] = useState("login");
 
   return (
     <GradientContainer>
       <SidePanel>
         <LogoWrapper>
-          <LogoImg src="../assets/logo-getinfo.png" alt="Logo Getinfo" />
+          <LogoImg src={logo} alt="Logo Getinfo" />
         </LogoWrapper>
         <Slogan>
           VOCÊ TEM A IDEIA,
@@ -636,5 +639,3 @@ function App() {
     </GradientContainer>
   );
 }
-
-export default App;
