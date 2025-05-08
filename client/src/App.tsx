@@ -6,6 +6,7 @@ import ContractManagementPage from "./contract-management/page";
 import RelatoriosPage from "./relatorios/page";
 import RepactuacoesPage from "./repactuacoes/page";
 import { RepactuacoesProvider } from "./repactuacoes/RepactuacoesContext";
+import EntregaveisPage from "./components/Entregaveis/EntregaveisPage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
                 path="/gerenciamento-contratos"
                 element={<ContractManagementPage />}
               />
+              <Route path="/entregaveis" element={<EntregaveisPage />} />
               <Route path="/relatorios" element={<RelatoriosPage />} />
               <Route path="/repactuacoes" element={<RepactuacoesPage />} />
             </Routes>

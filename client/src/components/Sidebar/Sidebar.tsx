@@ -21,7 +21,7 @@ const itensMenu = [
   { nome: "Contratantes", icone: <FaUserFriends />, path: "/clientes" },
   { nome: "Aditivos", icone: <FaFileContract />, path: "/aditivos" },
   { nome: "Repactuações", icone: <FaChartBar />, path: "/repactuacoes" },
-  { nome: "Entregáveis", icone: <FaShoppingCart />, path: "/compras" },
+  { nome: "Entregáveis", icone: <FaShoppingCart />, path: "/entregaveis" },
   { nome: "Sair", icone: <FaSignOutAlt />, path: "/sair" },
 ];
 
