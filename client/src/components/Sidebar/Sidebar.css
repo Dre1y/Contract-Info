@@ -81,4 +81,5 @@
 .sidebar-item.active {
   background: #e9ecef;
   border-left: 4px solid #3b5b7e;
+  color: #007bff;
 }
