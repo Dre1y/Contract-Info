@@ -6,7 +6,7 @@ import { ContractData } from "@/interface/ContractData";
 interface InputProps {
   label: string;
   value: string | number;
-  updateValue(value: any): void;
+  updateValue(value: unknown): void;
 }
 
 interface ModalProps {
@@ -32,7 +32,7 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
   const [validityStart, setValidityStart] = useState("");
   const [validityEnd, setValidityEnd] = useState("");
   const [contractorId, setContractorId] = useState("");
-  const { mutate, isSuccess, isLoading } = useContractDataMutate();
+  const { mutate, isSuccess } = useContractDataMutate();
 
   const submit = () => {
     const data: ContractData = {
@@ -88,7 +88,7 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
           />
           <div className="buttons-container">
             <button type="button" onClick={submit}>
-              {isLoading ? "Cadastrando..." : "Cadastrar"}
+              Cadastrar
             </button>
             <button type="button" onClick={closeModal}>
               Cancelar
