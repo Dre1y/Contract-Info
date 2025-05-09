@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.contractPosition.ContractPositionRequestDTO;
 import com.getinfo.api.DTOS.contractPosition.ContractPositionResponseDTO;
 import com.getinfo.api.services.ContractPositionService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/contract-positions")
 @RequiredArgsConstructor
+@Tag(name = "Cargo no Contrato", description = "Controlador responsável pelos cargos no contrato")
 public class ContractPositionController {
 
     private final ContractPositionService contractPositionService;

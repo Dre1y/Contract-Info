@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.contract.ContractRequestDTO;
 import com.getinfo.api.DTOS.contract.ContractResponseDTO;
 import com.getinfo.api.services.ContractService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/contracts")
 @RequiredArgsConstructor
+@Tag(name = "Contratos", description = "Controlador responsável pelos contratos")
 public class ContractController {
 
     private final ContractService contractService;

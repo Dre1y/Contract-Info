@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.person.PersonRequestDTO;
 import com.getinfo.api.DTOS.person.PersonResponseDTO;
 import com.getinfo.api.services.PersonService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @RequestMapping("/api/persons")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "Pessoa", description = "Controlador responsável pelas pessoas")
 public class PersonController {
 
     private final PersonService personService;
