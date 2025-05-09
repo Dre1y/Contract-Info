@@ -3,6 +3,8 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.serviceOrder.ServiceOrderRequestDTO;
 import com.getinfo.api.DTOS.serviceOrder.ServiceOrderResponseDTO;
 import com.getinfo.api.services.ServiceOrderService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/service-orders")
 @RequiredArgsConstructor
+@Tag(name = "Ordem de Serviço", description = "Controlador responsável pelas ordens de serviço")
 public class ServiceOrderController {
 
     private final ServiceOrderService serviceOrderService;

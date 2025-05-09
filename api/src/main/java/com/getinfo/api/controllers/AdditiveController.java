@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.additive.AdditiveRequestDTO;
 import com.getinfo.api.DTOS.additive.AdditiveResponseDTO;
 import com.getinfo.api.services.AdditiveService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/additives")
 @RequiredArgsConstructor
+@Tag(name = "Aditivo", description = "Controlador responsável pelos aditivos")
 public class AdditiveController {
 
     private final AdditiveService additiveService;

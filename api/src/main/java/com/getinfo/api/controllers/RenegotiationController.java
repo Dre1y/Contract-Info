@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.renegotiation.RenegotiationRequestDTO;
 import com.getinfo.api.DTOS.renegotiation.RenegotiationResponseDTO;
 import com.getinfo.api.services.RenegotiationService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/renegotiations")
 @RequiredArgsConstructor
+@Tag(name = "Renegociação", description = "Controlador responsável pelas renegociações")
 public class RenegotiationController {
 
     private final RenegotiationService renegotiationService;

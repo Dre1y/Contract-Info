@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.attachment.AttachmentRequestDTO;
 import com.getinfo.api.DTOS.attachment.AttachmentResponseDTO;
 import com.getinfo.api.services.AttachmentService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/attachments")
 @RequiredArgsConstructor
+@Tag(name = "Anexos", description = "Controlador responsável pelos anexos")
 public class AttachmentController {
 
     private final AttachmentService attachmentService;

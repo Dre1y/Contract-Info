@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.deliverable.DeliverableRequestDTO;
 import com.getinfo.api.DTOS.deliverable.DeliverableResponseDTO;
 import com.getinfo.api.services.DeliverableService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/deliverables")
 @RequiredArgsConstructor
+@Tag(name = "Entregáveis", description = "Controlador responsável pelos entregáveis")
 public class DeliverableController {
 
     private final DeliverableService deliverableService;

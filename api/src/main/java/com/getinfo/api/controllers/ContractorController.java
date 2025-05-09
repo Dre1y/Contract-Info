@@ -3,6 +3,7 @@ package com.getinfo.api.controllers;
 import com.getinfo.api.DTOS.contractors.ContractorRequestDTO;
 import com.getinfo.api.DTOS.contractors.ContractorResponseDTO;
 import com.getinfo.api.services.ContractorService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/contractors")
 @RequiredArgsConstructor
+@Tag(name = "Contratante", description = "Controlador responsável pelos contratantes")
 public class ContractorController {
 
     private final ContractorService contractorService;
