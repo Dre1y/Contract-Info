@@ -17,14 +17,20 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Tag(name = "Anexos", description = "Controlador responsável pelos anexos")
 public class AttachmentController {
-
     private final AttachmentService attachmentService;
 
     @PostMapping
     public ResponseEntity<AttachmentResponseDTO> create(@RequestBody AttachmentRequestDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(attachmentService.create(dto));
     }
+    
+    //Get all attachments
+    @GetMapping
+    public ResponseEntity<List<AttachmentResponseDTO>> getAll() {
+        return ResponseEntity.ok(attachmentService.getAll());
+    }
 
+    //Get attachment by contractId
     @GetMapping("/contract/{contractId}")
     public ResponseEntity<List<AttachmentResponseDTO>> getByContract(@PathVariable UUID contractId) {
         return ResponseEntity.ok(attachmentService.getAllByContract(contractId));

@@ -15,7 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/additives")
 @RequiredArgsConstructor
-@Tag(name = "Aditivo", description = "Controlador responsável pelos aditivos")
+@Tag(name = "Aditivos", description = "Controlador responsável pelos aditivos")
 public class AdditiveController {
 
     private final AdditiveService additiveService;

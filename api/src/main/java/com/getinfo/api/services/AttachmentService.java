@@ -39,6 +39,13 @@ public class AttachmentService {
                 .toList();
     }
 
+    public List<AttachmentResponseDTO> getAll() {
+    return attachmentRepository.findAll()
+        .stream()
+        .map(AttachmentResponseDTO::new)
+        .toList();
+    }
+
     public void delete(UUID id) {
         attachmentRepository.deleteById(id);
     }
