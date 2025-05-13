@@ -33,6 +33,12 @@ public class AttachmentService {
         return toDTO(attachmentRepository.save(attachment));
     }
 
+    public List<AttachmentResponseDTO> getAll() {
+        return attachmentRepository.findAll().stream()
+                .map(this::toDTO)
+                .toList();
+    }
+
     public List<AttachmentResponseDTO> getAllByContract(UUID contractId) {
         return attachmentRepository.findByContractId(contractId).stream()
                 .map(this::toDTO)

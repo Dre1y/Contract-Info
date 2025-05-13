@@ -25,6 +25,11 @@ public class AttachmentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(attachmentService.create(dto));
     }
 
+    @GetMapping
+    public ResponseEntity<List<AttachmentResponseDTO>> getAll() {
+        return ResponseEntity.ok(attachmentService.getAll());
+    }
+
     @GetMapping("/contract/{contractId}")
     public ResponseEntity<List<AttachmentResponseDTO>> getByContract(@PathVariable UUID contractId) {
         return ResponseEntity.ok(attachmentService.getAllByContract(contractId));
