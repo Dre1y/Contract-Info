@@ -9,6 +9,8 @@ import {
   FaChartBar,
   FaShoppingCart,
   FaSignOutAlt,
+  FaClipboardList,
+  FaStore,
 } from "react-icons/fa";
 
 const itensMenu = [
@@ -22,6 +24,8 @@ const itensMenu = [
   { nome: "Aditivos", icone: <FaFileContract />, path: "/aditivos" },
   { nome: "Repactuações", icone: <FaChartBar />, path: "/repactuacoes" },
   { nome: "Entregáveis", icone: <FaShoppingCart />, path: "/entregaveis" },
+  { nome: "Ordens de Serviços", icone: <FaClipboardList />, path: "/ordens-servico" },
+  { nome: "Postos de Serviços", icone: <FaStore />, path: "/postos-servico" },
   { nome: "Sair", icone: <FaSignOutAlt />, path: "/sair" },
 ];
 
@@ -29,7 +33,7 @@ export default function Sidebar() {
   return (
     <aside className="sidebar-agenda">
       <div className="sidebar-logo">
-        <img src={logoGetinfo} alt="Logo Getinfo" className="logo-getinfo" />
+        <img src="/src/assets/logo-getinfoBack.png" alt="Logo Getinfo" className="logo-getinfo" />
       </div>
       <nav>
         <ul>
