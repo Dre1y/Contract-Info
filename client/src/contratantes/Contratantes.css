@@ -1,0 +1,21 @@
+.contractors-table {
+  overflow-x: auto;
+}
+
+.contractors-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contractors-table th,
+.contractors-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.contractors-table th {
+  background: #f8f9fa;
+  color: #3b5b7e;
+  font-weight: 600;
+}
