@@ -6,7 +6,7 @@ interface ContractData {
   description: string;
   validityStart: string;
   validityEnd: string;
-  contractorName: string;
+  contractorId: string;
 }
 
 interface ContractTableProps {
@@ -35,7 +35,7 @@ const ContractTable = ({ data }: ContractTableProps) => {
               <td>{contract.description}</td>
               <td>{contract.validityStart}</td>
               <td>{contract.validityEnd}</td>
-              <td>{contract.contractorName}</td>
+              <td>{contract.contractorId}</td>
             </tr>
           ))}
         </tbody>
