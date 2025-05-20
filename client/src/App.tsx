@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import AdditivesPage from "./additives/page";
@@ -12,12 +18,13 @@ import Login from "./pages/Login";
 import OrdensServicoPage from "./components/OrdensServico/OrdensServicoPage";
 import PostosServicoPage from "./components/PostosServico/PostosServicoPage";
 import Dashboard from "./pages/Dashboard";
+import ContractorsPage from "./contratantes/page";
 
 // Componente para rotas protegidas
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   // Aqui você pode implementar sua lógica de autenticação
-  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-  
+  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
@@ -25,9 +32,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="app">
       <Sidebar />
-      <div className="main-content">
-        {children}
-      </div>
+      <div className="main-content">{children}</div>
     </div>
   );
 };
@@ -36,9 +41,9 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 function Logout() {
   const navigate = useNavigate();
   React.useEffect(() => {
-    localStorage.removeItem('isAuthenticated');
-    localStorage.removeItem('user');
-    navigate('/login');
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("user");
+    navigate("/login");
   }, [navigate]);
   return null;
 }
@@ -47,27 +52,27 @@ function App() {
   return (
     <RepactuacoesProvider>
       <Router>
-            <Routes>
+        <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/sair" element={<Logout />} />
-              <Route
-                path="/"
-                element={
+          <Route
+            path="/"
+            element={
               <ProtectedRoute>
-                  <>
-                    <h1>Bem-vindo ao GetInfo</h1>
-                    <p>
-                      O GetInfo é uma ferramenta de gerenciamento de contratos e
-                      aditivos, desenvolvida para facilitar o acompanhamento e a
-                      organização de informações relevantes. Com uma interface
-                      intuitiva e recursos avançados, o GetInfo permite que você
-                      gerencie seus contratos e aditivos de forma eficiente e
-                      prática.
-                    </p>
-                  </>
+                <>
+                  <h1>Bem-vindo ao GetInfo</h1>
+                  <p>
+                    O GetInfo é uma ferramenta de gerenciamento de contratos e
+                    aditivos, desenvolvida para facilitar o acompanhamento e a
+                    organização de informações relevantes. Com uma interface
+                    intuitiva e recursos avançados, o GetInfo permite que você
+                    gerencie seus contratos e aditivos de forma eficiente e
+                    prática.
+                  </p>
+                </>
               </ProtectedRoute>
-                }
-              />
+            }
+          />
           <Route
             path="/aditivos"
             element={
@@ -76,14 +81,22 @@ function App() {
               </ProtectedRoute>
             }
           />
-              <Route
-                path="/gerenciamento-contratos"
+          <Route
+            path="/gerenciamento-contratos"
             element={
               <ProtectedRoute>
                 <ContractManagementPage />
               </ProtectedRoute>
             }
-              />
+          />
+          <Route
+            path="/contratantes"
+            element={
+              <ProtectedRoute>
+                <ContractorsPage />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/entregaveis"
             element={
@@ -124,8 +137,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            </Routes>
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
       </Router>
     </RepactuacoesProvider>
   );

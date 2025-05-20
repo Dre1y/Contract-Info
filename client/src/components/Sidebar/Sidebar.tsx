@@ -20,11 +20,15 @@ const itensMenu = [
     icone: <FaFileAlt />,
     path: "/gerenciamento-contratos",
   },
-  { nome: "Contratantes", icone: <FaUserFriends />, path: "/clientes" },
+  { nome: "Contratantes", icone: <FaUserFriends />, path: "/contratantes" },
   { nome: "Aditivos", icone: <FaFileContract />, path: "/aditivos" },
   { nome: "Repactuações", icone: <FaChartBar />, path: "/repactuacoes" },
   { nome: "Entregáveis", icone: <FaShoppingCart />, path: "/entregaveis" },
-  { nome: "Ordens de Serviços", icone: <FaClipboardList />, path: "/ordens-servico" },
+  {
+    nome: "Ordens de Serviços",
+    icone: <FaClipboardList />,
+    path: "/ordens-servico",
+  },
   { nome: "Postos de Serviços", icone: <FaStore />, path: "/postos-servico" },
   { nome: "Sair", icone: <FaSignOutAlt />, path: "/sair" },
 ];
@@ -33,7 +37,11 @@ export default function Sidebar() {
   return (
     <aside className="sidebar-agenda">
       <div className="sidebar-logo">
-        <img src="/src/assets/logo-getinfoBack.png" alt="Logo Getinfo" className="logo-getinfo" />
+        <img
+          src="/src/assets/logo-getinfoBack.png"
+          alt="Logo Getinfo"
+          className="logo-getinfo"
+        />
       </div>
       <nav>
         <ul>
