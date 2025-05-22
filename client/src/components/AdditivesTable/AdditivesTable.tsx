@@ -17,6 +17,15 @@ interface AdditiveTableProps {
 }
 
 const AdditiveTable = ({ data }: AdditiveTableProps) => {
+  if (!data.length) {
+    return (
+      <div className="empty-message-container">
+        <div className="empty-icon">📄</div>
+        Nenhum aditivo cadastrado.
+      </div>
+    );
+  }
+
   return (
     <div className="additives-table-container">
       <table className="additives-table">
