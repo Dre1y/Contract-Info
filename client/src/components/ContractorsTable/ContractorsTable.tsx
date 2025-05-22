@@ -13,6 +13,14 @@ interface ContractorTableProps {
 }
 
 const ContractorTable = ({ data }: ContractorTableProps) => {
+  if (!data || data.length === 0) {
+    return (
+      <div className="empty-message-container">
+        <p className="empty-message">Nenhum contratante registrado.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="contractors-table-container">
       <table className="contractors-table">

@@ -1,58 +1,91 @@
 .contractors-page {
-  background: #f8f9fa;
-  padding: 32px 24px;
-  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f9fafb;
+  padding: 40px 28px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #1e293b;
 }
 
 .contractors-tabs {
   display: flex;
   justify-content: flex-end;
-  gap: 16px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 16px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 20px;
 }
 
-.contractors-tabs button {
-  background: none;
-  border: none;
-  padding: 12px 24px;
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 26px;
   font-size: 1rem;
-  background: #3b5b7e;
-  color: white;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-
-.contractors-tabs button:hover {
-  background: #274060;
-  color: white;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.15s ease;
+  user-select: none;
 }
 
-.contractors-tabs button.active {
-  background: #274060;
-  color: white;
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
 }
 
 .contractors-table {
   overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  background-color: white;
+  padding: 16px;
 }
 
 .contractors-table table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px;
 }
 
 .contractors-table th,
 .contractors-table td {
-  padding: 12px;
+  padding: 14px 16px;
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
 }
 
 .contractors-table th {
-  background: #f8f9fa;
-  color: #3b5b7e;
-  font-weight: 600;
+  background-color: #f1f5f9;
+  font-weight: 700;
+  user-select: none;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #64748b; /* cinza suave */
+  margin: 40px;
+  font-style: italic;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+  .contractors-page {
+    padding: 28px 16px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 14px 0;
+  }
+
+  .contractors-tabs {
+    margin-bottom: 20px;
+  }
+
+  .contractors-table table {
+    min-width: 100%;
+  }
 }

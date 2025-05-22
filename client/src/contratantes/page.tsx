@@ -8,20 +8,25 @@ const ContractorsPage = () => {
   const { data } = useContractorData();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  const toggleModal = () => setIsModalOpen((prev) => !prev);
+
   return (
     <>
       <div className="contractors-page">
         <div className="contractors-tabs">
-          <button onClick={handleOpenModal}>Cadastrar Contratante</button>
+          <button className="btn-primary" onClick={toggleModal}>
+            Cadastrar Contratante
+          </button>
+        </div>
+        <div className="contractors-table">
+          {data && data.length > 0 ? (
+            <ContractorTable data={data} />
+          ) : (
+            <p className="empty-message">Nenhum contratante registrado.</p>
+          )}
         </div>
       </div>
-      <div className="contractors-table">
-        {data && <ContractorTable data={data} />}
-      </div>
-      {isModalOpen && <CreateContractorModal closeModal={handleOpenModal} />}
+      {isModalOpen && <CreateContractorModal closeModal={toggleModal} />}
     </>
   );
 };
