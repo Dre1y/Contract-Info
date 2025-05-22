@@ -1,4 +1,10 @@
 import "./ContractTable.css";
+import {
+  FaFileContract,
+  FaBriefcase,
+  FaCalendarAlt,
+  FaUser,
+} from "react-icons/fa";
 
 interface ContractData {
   contractType: string;
@@ -19,12 +25,22 @@ const ContractTable = ({ data }: ContractTableProps) => {
       <table className="contracts-table">
         <thead>
           <tr>
-            <th>Tipo do Contrato</th>
-            <th>Tipo do Serviço</th>
+            <th>
+              <FaFileContract /> Tipo
+            </th>
+            <th>
+              <FaBriefcase /> Serviço
+            </th>
             <th>Descrição</th>
-            <th>Data de Início</th>
-            <th>Data de Fim</th>
-            <th>Nome do Contratante</th>
+            <th>
+              <FaCalendarAlt /> Início
+            </th>
+            <th>
+              <FaCalendarAlt /> Fim
+            </th>
+            <th>
+              <FaUser /> Contratante
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -32,9 +48,11 @@ const ContractTable = ({ data }: ContractTableProps) => {
             <tr key={index}>
               <td>{contract.contractType}</td>
               <td>{contract.serviceType}</td>
-              <td>{contract.description}</td>
-              <td>{contract.validityStart}</td>
-              <td>{contract.validityEnd}</td>
+              <td title={contract.description}>
+                <div className="truncate-text">{contract.description}</div>
+              </td>
+              <td>{new Date(contract.validityStart).toLocaleDateString()}</td>
+              <td>{new Date(contract.validityEnd).toLocaleDateString()}</td>
               <td>{contract.contractorId}</td>
             </tr>
           ))}

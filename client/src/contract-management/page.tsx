@@ -53,12 +53,10 @@ export default function ContractManagementPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui será implementada a lógica de envio
     console.log("Dados do formulário:", formData);
   };
 
   const aplicarFiltros = () => {
-    // Aqui será implementada a lógica de filtragem
     console.log("Aplicando filtros:", filtros);
     setShowFiltros(false);
   };
@@ -202,8 +200,15 @@ export default function ContractManagementPage() {
           )}
 
           <div className="contracts-table">
-            {data && <ContractTable data={data} />}
+            {data && data.length > 0 ? (
+              <ContractTable data={data} />
+            ) : (
+              <div className="sem-contratos-msg">
+                <p>Nenhum contrato registrado no momento.</p>
+              </div>
+            )}
           </div>
+
           {isModalOpen && <CreateContractModal closeModal={handleOpenModal} />}
         </div>
       )}

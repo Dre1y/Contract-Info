@@ -1,130 +1,135 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  background-color: rgba(15, 23, 42, 0.65); /* mais escuro e suave */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
+  backdrop-filter: blur(4px); /* efeito blur no fundo */
 }
 
-.modal-overlay .modal-body {
-  background-color: white;
-  padding: 24px;
-  max-height: 80vh;
-  width: 60%;
-  border-radius: 24px;
+.modal-body {
+  background-color: #fff;
+  padding: 32px 36px;
+  max-height: 85vh;
+  width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
-  justify-content: flex-start;
   overflow-y: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
 }
 
-.modal-overlay .modal-body h2 {
-  font-size: 32px;
+.modal-body h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #0f172a;
+  user-select: none;
 }
 
-.modal-overlay .modal-body .input-container {
+.input-container {
   width: 100%;
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
 }
 
-.modal-overlay .modal-body input {
-  padding: 8px;
-  border: 2px solid #c6c5c5c5;
-  color: rgba(0, 0, 0, 0.9);
-  font-size: 18px;
-  line-height: 24px;
-  border-radius: 12px;
-  width: 100%;
-  margin-bottom: 12px;
+.input-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.modal-overlay .modal-body label {
-  color: #242424;
+.input-group label {
   font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 18px;
+  font-size: 16px;
+  color: #334155;
+  margin-bottom: 6px;
+  user-select: none;
 }
 
-.modal-overlay .modal-body .btn-secondary {
-  width: 100%;
-  margin-top: 32px;
+.input-group input {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1.8px solid #cbd5e1;
+  border-radius: 10px;
+  transition: border-color 0.25s ease;
+  outline-offset: 2px;
+  color: #334155;
 }
 
-.modal-overlay .modal-body .btn-secondary:hover {
-  background-color: #274060;
-  transform: scale(1);
+.input-group input::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.input-group input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px #3b82f6aa;
 }
 
 .buttons-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 button {
-  background: none;
-  border: none;
-  padding: 12px 24px;
-  margin: 10px;
-  font-size: 1rem;
-  background: #3b5b7e;
+  background-color: #3b82f6;
   color: white;
-  border-radius: 4px;
-  transition: all 0.2s;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.15s ease;
+  user-select: none;
 }
 
-button:hover {
-  background: #274060;
-  color: white;
-  cursor: pointer;
+button:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-cancel {
+  background-color: #f3f4f6;
+  color: #475569;
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.btn-cancel:hover {
+  background-color: #e2e8f0;
+  color: #1e293b;
 }
 
 /* Responsividade */
-@media (max-width: 1024px) {
-  .modal-overlay .modal-body {
-    width: 80%;
-  }
-}
 
-@media (max-width: 768px) {
-  .modal-overlay .modal-body {
-    width: 90%;
-    padding: 16px;
+@media (max-width: 600px) {
+  .modal-body {
+    width: 90vw;
+    padding: 24px 24px;
   }
 
-  .modal-overlay .modal-body h2 {
-    font-size: 24px;
-  }
-
-  .modal-overlay .modal-body label,
-  .modal-overlay .modal-body input {
-    font-size: 16px;
-  }
-
-  .buttons-container {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-overlay .modal-body {
-    width: 95%;
-    padding: 12px;
-  }
-
-  .modal-overlay .modal-body h2 {
-    font-size: 20px;
+  .modal-body h2 {
+    font-size: 22px;
   }
 
   button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
+    flex: 1 1 100%;
   }
 }

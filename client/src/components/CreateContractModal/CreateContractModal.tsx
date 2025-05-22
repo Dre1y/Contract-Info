@@ -82,7 +82,7 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
             updateValue={setValidityEnd}
           />
           <Input
-            label="ID do Contratante"
+            label="Contratante"
             value={contractorId}
             updateValue={setContractorId}
           />
