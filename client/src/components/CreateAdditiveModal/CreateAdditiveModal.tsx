@@ -63,39 +63,39 @@ const CreateAdditiveModal = ({ closeModal }: ModalProps) => {
         <h2>Cadastrar Aditivo</h2>
         <form className="input-container">
           <Input
-            label="Tipo de Aditivo"
+            label="Tipo de Aditivo:"
             value={additiveType}
             updateValue={setAdditiveType}
           />
           <Input
-            label="Valor ajustado"
+            label="Valor ajustado:"
             value={adjustedValue}
             updateValue={setAdjustedValue}
           />
           <Input
-            label="Prazo estendido"
+            label="Prazo estendido:"
             value={extendedDeadline}
             updateValue={setExtendedDeadline}
           />
-          <Input label="Detalhes" value={details} updateValue={setDetails} />
+          <Input label="Detalhes:" value={details} updateValue={setDetails} />
           <Input
-            label="Motivo da Mudança"
+            label="Motivo da Mudança:"
             value={changeReason}
             updateValue={setChangeReason}
           />
           <Input
-            label="Aprovado por"
+            label="Aprovado por:"
             value={approvedBy}
             updateValue={setApprovedBy}
           />
-          <Input label="Status" value={status} updateValue={setStatus} />
+          <Input label="Status:" value={status} updateValue={setStatus} />
           <Input
-            label="ID do Contratante"
+            label="Contratante:"
             value={contractId}
             updateValue={setContractId}
           />
           <Input
-            label="ID do Anexo"
+            label="Anexo:"
             value={attachmentId}
             updateValue={setAttachmentId}
           />

@@ -1,10 +1,5 @@
 import "./ContractTable.css";
-import {
-  FaFileContract,
-  FaBriefcase,
-  FaCalendarAlt,
-  FaUser,
-} from "react-icons/fa";
+import { FaBriefcase, FaCalendarAlt, FaUser } from "react-icons/fa";
 
 interface ContractData {
   contractType: string;
@@ -26,9 +21,6 @@ const ContractTable = ({ data }: ContractTableProps) => {
         <thead>
           <tr>
             <th>
-              <FaFileContract /> Tipo
-            </th>
-            <th>
               <FaBriefcase /> Serviço
             </th>
             <th>Descrição</th>
@@ -46,7 +38,6 @@ const ContractTable = ({ data }: ContractTableProps) => {
         <tbody>
           {data.map((contract, index) => (
             <tr key={index}>
-              <td>{contract.contractType}</td>
               <td>{contract.serviceType}</td>
               <td title={contract.description}>
                 <div className="truncate-text">{contract.description}</div>

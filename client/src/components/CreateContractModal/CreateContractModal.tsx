@@ -57,32 +57,27 @@ const CreateContractModal = ({ closeModal }: ModalProps) => {
         <h2>Cadastrar Contrato</h2>
         <form className="input-container">
           <Input
-            label="Tipo de Contrato"
-            value={contractType}
-            updateValue={setContractType}
-          />
-          <Input
-            label="Tipo de Serviço"
+            label="Tipo de Serviço:"
             value={serviceType}
             updateValue={setServiceType}
           />
           <Input
-            label="Descrição"
+            label="Descrição:"
             value={description}
             updateValue={setDescription}
           />
           <Input
-            label="Data de Início"
+            label="Data de Início:"
             value={validityStart}
             updateValue={setValidityStart}
           />
           <Input
-            label="Data de Término"
+            label="Data de Término:"
             value={validityEnd}
             updateValue={setValidityEnd}
           />
           <Input
-            label="Contratante"
+            label="Contratante:"
             value={contractorId}
             updateValue={setContractorId}
           />

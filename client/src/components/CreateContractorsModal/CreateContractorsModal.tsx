@@ -52,10 +52,10 @@ const CreateContractorModal = ({ closeModal }: ModalProps) => {
       <div className="modal-body">
         <h2>Cadastrar Contratante</h2>
         <form className="input-container">
-          <Input label="Nome" value={name} updateValue={setName} />
-          <Input label="CPF/CNPJ" value={cpf_cnpj} updateValue={setCpfCnpj} />
-          <Input label="Telefone" value={phone} updateValue={setPhone} />
-          <Input label="CEP" value={cep} updateValue={setCep} />
+          <Input label="Nome:" value={name} updateValue={setName} />
+          <Input label="CPF/CNPJ:" value={cpf_cnpj} updateValue={setCpfCnpj} />
+          <Input label="Telefone:" value={phone} updateValue={setPhone} />
+          <Input label="CEP:" value={cep} updateValue={setCep} />
           <div className="buttons-container">
             <button type="button" onClick={submit}>
               Cadastrar
