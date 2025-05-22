@@ -13,6 +13,7 @@ const ContractorsPage = () => {
   return (
     <>
       <div className="contractors-page">
+        <h2>Contratantes Cadastrados</h2>
         <div className="contractors-tabs">
           <button className="btn-primary" onClick={toggleModal}>
             Cadastrar Contratante

@@ -12,11 +12,11 @@ export default function AdditivesPage() {
 
   return (
     <div className="aditivos-page">
+      <h2>Aditivos Cadastrados</h2>
       <div className="buttons-container">
         <button onClick={handleOpenModal}>Cadastrar Aditivo</button>
       </div>
       <div className="aditivos-lista">
-        <h3>Aditivos Cadastrados</h3>
         {data && data.length > 0 ? (
           <AdditiveTable data={data} />
         ) : (

@@ -80,6 +80,7 @@ export default function ContractManagementPage() {
 
   return (
     <div className="gerenciamento-contratos-page">
+      <h2>Contratos Cadastrados</h2>
       <div className="gerenciamento-contratos-tabs">
         <button onClick={handleOpenModal}>Cadastrar Contrato</button>
       </div>
