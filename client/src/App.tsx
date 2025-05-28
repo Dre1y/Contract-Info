@@ -19,6 +19,7 @@ import OrdensServicoPage from "./components/OrdensServico/OrdensServicoPage";
 import PostosServicoPage from "./components/PostosServico/PostosServicoPage";
 import Dashboard from "./pages/Dashboard";
 import ContractorsPage from "./contratantes/page";
+import CollaboratorsTable from "./components/CollaboratorsTable/CollaboratorsTable";
 
 // Componente para rotas protegidas
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -134,6 +135,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <PostosServicoPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/colaboradores"
+            element={
+              <ProtectedRoute>
+                <CollaboratorsTable />
               </ProtectedRoute>
             }
           />
