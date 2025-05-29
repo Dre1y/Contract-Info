@@ -1,0 +1,97 @@
+.entregaveis-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .entregaveis-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.entregavel-form-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.entregavel-form-container h2 {
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+textarea,
+input,
+select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fafafa;
+  transition: border-color 0.2s ease;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border-color: #2f80ed;
+  outline: none;
+  background-color: #fff;
+}
+
+.deliverables-table {
+  margin-top: 2rem;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+button[type="button"] {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button[type="button"]:first-child {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+button[type="button"]:nth-child(2) {
+  background-color: #eb5757;
+  color: #fff;
+}
+
+button[type="button"]:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .buttons-container {
+    flex-direction: column;
+  }
+}
