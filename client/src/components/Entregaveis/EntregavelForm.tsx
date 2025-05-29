@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DeliverableData } from "@/interface/DeliverableData";
 import { useDeliverableDataMutate } from "@/hooks/useDeliverableDataMutate";
+import "./EntregavelForm.css";
 
 interface InputProps {
   label: string;
@@ -21,19 +22,19 @@ const Input = ({ label, value, updateValue }: InputProps) => (
 
 const EntregavelForm = () => {
   const [description, setDescription] = useState("");
-  const [due_date, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [status, setStatus] = useState("");
-  const [attachment_id, setAttachmentId] = useState("");
-  const [contract_id, setContractId] = useState("");
+  const [attachmentId, setAttachmentId] = useState("");
+  const [contractId, setContractId] = useState("");
   const { mutate } = useDeliverableDataMutate();
 
   const submit = () => {
     const data: DeliverableData = {
       description,
-      due_date: new Date(due_date),
+      dueDate: new Date(dueDate),
       status,
-      attachment_id,
-      contract_id,
+      attachmentId,
+      contractId,
     };
     mutate(data);
   };
@@ -51,7 +52,7 @@ const EntregavelForm = () => {
 
         <Input
           label="Data de Entrega"
-          value={due_date}
+          value={dueDate}
           updateValue={setDueDate}
         />
 
@@ -61,21 +62,25 @@ const EntregavelForm = () => {
           onChange={(e) => setStatus(e.target.value)}
           required
         >
-          <option value="pendente">Pendente</option>
-          <option value="em_andamento">Em Andamento</option>
-          <option value="concluido">Concluído</option>
-          <option value="atrasado">Atrasado</option>
+          <option value="" disabled>
+            Selecione o status
+          </option>
+          <option value="PENDENTE">Pendente</option>
+          <option value="APROVADO">Aprovado</option>
+          <option value="CONCLUIDO">Concluído</option>
+          <option value="REJEITADO">Rejeitado</option>
+          <option value="CANCELADO">Cancelado</option>
         </select>
 
         <Input
           label="ID do Anexo"
-          value={attachment_id}
+          value={attachmentId}
           updateValue={setAttachmentId}
         />
 
         <Input
           label="ID do Contrato"
-          value={contract_id}
+          value={contractId}
           updateValue={setContractId}
         />
 

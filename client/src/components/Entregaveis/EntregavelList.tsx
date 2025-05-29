@@ -1,10 +1,12 @@
+import "./EntregavelList.css";
+
 interface DeliverableData {
   id?: string;
   description: string;
-  due_date: Date;
+  dueDate: Date;
   status: string;
-  attachment_id: string;
-  contract_id: string;
+  attachmentId: string;
+  contractId: string;
 }
 
 interface EntregaveisTableProps {
@@ -28,10 +30,14 @@ const EntregaveisList = ({ data }: EntregaveisTableProps) => {
           {data.map((item, index) => (
             <tr key={index}>
               <td>{item.description}</td>
-              <td>{item.due_date.toLocaleDateString()}</td>
+              <td>
+                {item.dueDate
+                  ? new Date(item.dueDate).toLocaleDateString()
+                  : "Não especificada"}
+              </td>
               <td>{item.status}</td>
-              <td>{item.attachment_id}</td>
-              <td>{item.contract_id}</td>
+              <td>{item.attachmentId}</td>
+              <td>{item.contractId}</td>
             </tr>
           ))}
         </tbody>
