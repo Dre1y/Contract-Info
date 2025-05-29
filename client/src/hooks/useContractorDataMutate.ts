@@ -2,7 +2,7 @@ import { ContractorData } from "@/interface/ContractorData";
 import axios, { AxiosPromise } from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://contract-info.onrender.com";
 
 const postData = async (data: ContractorData): AxiosPromise<any> => {
   const response = axios.post(API_URL + "/api/contractors", data);
