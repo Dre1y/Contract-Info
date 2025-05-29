@@ -73,13 +73,13 @@ const EntregavelForm = () => {
         </select>
 
         <Input
-          label="ID do Anexo"
+          label="Anexo"
           value={attachmentId}
           updateValue={setAttachmentId}
         />
 
         <Input
-          label="ID do Contrato"
+          label="Contrato"
           value={contractId}
           updateValue={setContractId}
         />
