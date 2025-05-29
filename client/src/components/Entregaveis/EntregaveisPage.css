@@ -1,20 +1,51 @@
+.deliverables-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 32px 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
 .deliverables-tabs {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* Pra separar o título do botão */
+  align-items: center;
   padding: 1rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(59, 91, 126, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.deliverables-tabs h1 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
 .deliverables-tabs button {
-  background-color: #2f80ed;
+  background-color: #3b5b7e;
   color: #fff;
-  padding: 0.6rem 1.2rem;
+  padding: 0.8rem 1.6rem;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 8px rgba(59, 91, 126, 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .deliverables-tabs button:hover {
-  background-color: #1c6cd5;
+  background-color: #274060;
+  box-shadow: 0 6px 12px rgba(39, 64, 96, 0.3);
+}
+
+.deliverables-table {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 12px rgba(59, 91, 126, 0.1);
+  border: 1px solid #e0e0e0;
+  max-width: 100%;
+  overflow-x: auto;
 }

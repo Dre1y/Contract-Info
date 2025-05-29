@@ -88,7 +88,6 @@ const EntregavelForm = () => {
           <button type="button" onClick={submit}>
             Salvar
           </button>
-          <button type="button">Cancelar</button>
         </div>
       </form>
     </div>

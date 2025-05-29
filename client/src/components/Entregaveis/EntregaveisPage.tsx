@@ -13,6 +13,7 @@ const DeliverablesPage = () => {
   return (
     <div className="deliverables-page">
       <div className="deliverables-tabs">
+        <h2>Entregáveis Cadastrados</h2>
         <button onClick={toggleForm}>
           {showForm ? "Fechar Formulário" : "Cadastrar Entregável"}
         </button>
