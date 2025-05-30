@@ -46,11 +46,6 @@ const itensMenu = [
     path: "/entregaveis",
   },
   {
-    nome: "Funções",
-    icone: <FaStore />,
-    path: "/postos-servico",
-  },
-  {
     nome: "Sair",
     icone: <FaSignOutAlt />,
     path: "/sair",
