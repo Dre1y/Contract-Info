@@ -5,7 +5,7 @@ import {
   FaTachometerAlt,
   FaFileAlt,
   FaUserFriends,
-  FaUsers,            
+  FaUsers,
   FaFileContract,
   FaChartBar,
   FaShoppingCart,
@@ -26,9 +26,9 @@ const itensMenu = [
     path: "/contratantes",
   },
   {
-    nome: "Colaboradores",    
-    icone: <FaUsers />,       
-    path: "/colaboradores",   
+    nome: "Colaboradores",
+    icone: <FaUsers />,
+    path: "/colaboradores",
   },
   {
     nome: "Aditivos",
@@ -46,12 +46,7 @@ const itensMenu = [
     path: "/entregaveis",
   },
   {
-    nome: "Ordens de Serviços",
-    icone: <FaClipboardList />,
-    path: "/ordens-servico",
-  },
-  {
-    nome: "Postos de Serviços",
+    nome: "Funções",
     icone: <FaStore />,
     path: "/postos-servico",
   },
@@ -66,11 +61,7 @@ export default function Sidebar() {
   return (
     <aside className="sidebar-agenda">
       <div className="sidebar-logo">
-        <img
-          src={logoGetinfo}
-          alt="Logo Getinfo"
-          className="logo-getinfo"
-        />
+        <img src={logoGetinfo} alt="Logo Getinfo" className="logo-getinfo" />
       </div>
       <nav>
         <ul>
