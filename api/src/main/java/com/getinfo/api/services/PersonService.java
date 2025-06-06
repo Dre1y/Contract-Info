@@ -18,14 +18,15 @@ public class PersonService {
     private final PersonRepository personRepository;
 
     public PersonResponseDTO create(PersonRequestDTO dto) {
-        Person person = toEntity(dto);
-        return toDTO(personRepository.save(person));
-    }
-
-    public List<PersonResponseDTO> getAll() {
-        return personRepository.findAll().stream()
-                .map(this::toDTO)
-                .toList();
+        Person person = new Person();
+        person.setName(dto.getName());
+        person.setCpfCnpj(dto.getCpfCnpj());
+        person.setRg(dto.getRg());
+        person.setEmail(dto.getEmail());
+        person.setPhone(dto.getPhone());
+        person.setAddress(dto.getAddress());
+        person = personRepository.save(person);
+        return toDTO(person);
     }
 
     public PersonResponseDTO getById(UUID id) {
@@ -34,33 +35,26 @@ public class PersonService {
                 .orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrada"));
     }
 
+    public List<PersonResponseDTO> getAll() {
+        return personRepository.findAll().stream()
+                .map(this::toDTO)
+                .toList();
+    }
+
     public PersonResponseDTO update(UUID id, PersonRequestDTO dto) {
         Person person = personRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrada"));
-
         person.setName(dto.getName());
         person.setCpfCnpj(dto.getCpfCnpj());
         person.setRg(dto.getRg());
         person.setEmail(dto.getEmail());
         person.setPhone(dto.getPhone());
         person.setAddress(dto.getAddress());
-
-        return toDTO(personRepository.save(person));
+        return toDTO(person);
     }
 
     public void delete(UUID id) {
         personRepository.deleteById(id);
-    }
-
-    private Person toEntity(PersonRequestDTO dto) {
-        Person person = new Person();
-        person.setName(dto.getName());
-        person.setCpfCnpj(dto.getCpfCnpj());
-        person.setRg(dto.getRg());
-        person.setEmail(dto.getEmail());
-        person.setPhone(dto.getPhone());
-        person.setAddress(dto.getAddress());
-        return person;
     }
 
     private PersonResponseDTO toDTO(Person person) {
@@ -73,5 +67,16 @@ public class PersonService {
         dto.setPhone(person.getPhone());
         dto.setAddress(person.getAddress());
         return dto;
+    }
+
+    private Person toEntity(PersonRequestDTO dto) {
+        Person person = new Person();
+        person.setName(dto.getName());
+        person.setCpfCnpj(dto.getCpfCnpj());
+        person.setRg(dto.getRg());
+        person.setEmail(dto.getEmail());
+        person.setPhone(dto.getPhone());
+        person.setAddress(dto.getAddress());
+        return person;
     }
 }

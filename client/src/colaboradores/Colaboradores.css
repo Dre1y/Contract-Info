@@ -1,0 +1,91 @@
+.persons-page {
+  background-color: #f9fafb;
+  padding: 40px 28px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #1e293b;
+}
+
+.persons-tabs {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 26px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.15s ease;
+  user-select: none;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.persons-table {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  background-color: white;
+  padding: 16px;
+}
+
+.persons-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.persons-table th,
+.persons-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.persons-table th {
+  background-color: #f1f5f9;
+  font-weight: 700;
+  user-select: none;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #64748b; /* cinza suave */
+  margin: 40px;
+  font-style: italic;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+  .persons-page {
+    padding: 28px 16px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 14px 0;
+  }
+
+  .persons-tabs {
+    margin-bottom: 20px;
+  }
+
+  .persons-table table {
+    min-width: 100%;
+  }
+}

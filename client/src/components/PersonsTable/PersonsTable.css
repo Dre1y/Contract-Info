@@ -1,4 +1,4 @@
-.contractors-page-container {
+.persons-page-container {
   padding: 20px;
   background: #f9fafc;
 }
@@ -42,7 +42,7 @@ hr {
   font-style: italic;
 }
 
-.contractors-table-container {
+.persons-table-container {
   width: 100%;
   overflow-x: auto;
   padding: 1rem;
@@ -51,7 +51,7 @@ hr {
   box-shadow: 0 6px 12px rgba(59, 91, 126, 0.1);
 }
 
-.contractors-table {
+.persons-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 10px;
@@ -59,14 +59,14 @@ hr {
   color: #1f2937;
 }
 
-.contractors-table th,
-.contractors-table td {
+.persons-table th,
+.persons-table td {
   padding: 14px 20px;
   text-align: left;
   border-bottom: none;
 }
 
-.contractors-table th {
+.persons-table th {
   background-color: #e0e7ff;
   color: #3b5b7e;
   font-weight: 700;
@@ -74,14 +74,14 @@ hr {
   border-top-right-radius: 12px;
 }
 
-.contractors-table tbody tr {
+.persons-table tbody tr {
   background: #f9fafb;
   border-radius: 12px;
   transition: background-color 0.3s ease;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
 }
 
-.contractors-table tbody tr:hover {
+.persons-table tbody tr:hover {
   background-color: #dbeafe;
   box-shadow: 0 4px 8px rgba(59, 91, 126, 0.15);
   cursor: pointer;

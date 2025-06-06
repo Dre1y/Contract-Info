@@ -10,14 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/persons")
 @RequiredArgsConstructor
-@Validated
 @Tag(name = "Pessoa", description = "Controlador responsável pelas pessoas")
 public class PersonController {
 
@@ -28,18 +27,18 @@ public class PersonController {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.create(dto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<PersonResponseDTO>> getAll() {
-        return ResponseEntity.ok(personService.getAll());
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<PersonResponseDTO> getById(@PathVariable UUID id) {
         return ResponseEntity.ok(personService.getById(id));
     }
 
+    @GetMapping
+    public ResponseEntity<List<PersonResponseDTO>> getAll() {
+        return ResponseEntity.ok(personService.getAll());
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<PersonResponseDTO> update(@PathVariable UUID id, @RequestBody @Valid PersonRequestDTO dto) {
+    public ResponseEntity<PersonResponseDTO> update(@PathVariable UUID id, @RequestBody @Validated PersonRequestDTO dto) {
         return ResponseEntity.ok(personService.update(id, dto));
     }
 

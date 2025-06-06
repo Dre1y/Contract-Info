@@ -28,7 +28,7 @@ const itensMenu = [
   {
     nome: "Colaboradores",
     icone: <FaUsers />,
-    path: "/colaboradores",
+    path: "/persons",
   },
   {
     nome: "Aditivos",
