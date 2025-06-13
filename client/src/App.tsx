@@ -1,163 +1,50 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
-import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
-import AdditivesPage from "./additives/page";
-import ContractManagementPage from "./contract-management/page";
-import RelatoriosPage from "./relatorios/page";
-import RepactuacoesPage from "./repactuacoes/page";
-import { RepactuacoesProvider } from "./repactuacoes/RepactuacoesContext";
-import EntregaveisPage from "./components/Entregaveis/EntregaveisPage";
-import Login from "./pages/Login";
-import OrdensServicoPage from "./components/OrdensServico/OrdensServicoPage";
-import PostosServicoPage from "./components/PostosServico/PostosServicoPage";
+
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ContractProvider } from "./contexts/ContractContext";
+import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
-import ContractorsPage from "./contratantes/page";
-import CollaboratorsTable from "./components/CollaboratorsTable/CollaboratorsTable";
+import Colaboradores from "./pages/Colaboradores";
+import Empresas from "./pages/Empresas";
+import Contratos from "./pages/Contratos";
+import NotFound from "./pages/NotFound";
+import LoginPage from "./pages/auth/Login";
 
-// Componente para rotas protegidas
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  // Aqui você pode implementar sua lógica de autenticação
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+const queryClient = new QueryClient();
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return (
-    <div className="app">
-      <Sidebar />
-      <div className="main-content">{children}</div>
-    </div>
-  );
-};
-
-// Componente para logout
-function Logout() {
-  const navigate = useNavigate();
-  React.useEffect(() => {
-    localStorage.removeItem("isAuthenticated");
-    localStorage.removeItem("user");
-    navigate("/login");
-  }, [navigate]);
-  return null;
-}
-
-function App() {
-  return (
-    <RepactuacoesProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/sair" element={<Logout />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <>
-                  <h1>Bem-vindo ao GetInfo</h1>
-                  <p>
-                    O GetInfo é uma ferramenta de gerenciamento de contratos e
-                    aditivos, desenvolvida para facilitar o acompanhamento e a
-                    organização de informações relevantes. Com uma interface
-                    intuitiva e recursos avançados, o GetInfo permite que você
-                    gerencie seus contratos e aditivos de forma eficiente e
-                    prática.
-                  </p>
-                </>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/aditivos"
-            element={
-              <ProtectedRoute>
-                <AdditivesPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/gerenciamento-contratos"
-            element={
-              <ProtectedRoute>
-                <ContractManagementPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/contratantes"
-            element={
-              <ProtectedRoute>
-                <ContractorsPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/entregaveis"
-            element={
-              <ProtectedRoute>
-                <EntregaveisPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/relatorios"
-            element={
-              <ProtectedRoute>
-                <RelatoriosPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/repactuacoes"
-            element={
-              <ProtectedRoute>
-                <RepactuacoesPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/ordens-servico"
-            element={
-              <ProtectedRoute>
-                <OrdensServicoPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/postos-servico"
-            element={
-              <ProtectedRoute>
-                <PostosServicoPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/colaboradores"
-            element={
-              <ProtectedRoute>
-                <CollaboratorsTable />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </Router>
-    </RepactuacoesProvider>
-  );
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <ContractProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            {/* todas as outras rotas ficam dentro do Layout */}
+            <Route
+              path="/*"
+              element={
+                <Layout>
+                  <Routes>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/colaboradores" element={<Colaboradores />} />
+                    <Route path="/empresas" element={<Empresas />} />
+                    <Route path="/contratos" element={<Contratos />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Layout>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </ContractProvider>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
